@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - IDS/IPS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f2027;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-wrapper {
+      display: flex;
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .login-form {
+      flex: 1;
+      background-color: #1e2a38;
+      padding: 60px 40px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .login-form h2 {
+      color: #00bcd4;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-form input {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .btn {
+      padding: 12px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #0196aa;
+    }
+
+    .login-form .links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .login-form .links a {
+      color: #90caf9;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .login-form .links a:hover {
+      text-decoration: underline;
+    }
+
+    .image-side {
+      flex: 1;
+      background-image: url("https://img.freepik.com/free-vector/global-data-security-personal-data-security-cyber-data-security-online-concept-illustration-internet-security-information-privacy-protection_1150-37368.jpg?t=st=1745305789~exp=1745309389~hmac=37ccf05e2b434da90d4ae1504f7299aa64c18030f9a7db0896c06fd9dac871f4&w=900");
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 768px) {
+      .login-wrapper {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .image-side {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-form">
+      <h2>Welcome to IDS/IPS</h2>
+      <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <div class="links">
+        <a href="{{ url_for('signup') }}">Don't have an account? Sign up</a><br>
+        <a href="{{ url_for('forgot_password') }}">Forgot Password?</a>
+
+
+
+      </div>
+    </div>
+    <div class="image-side"></div>
+  </div>
+</body>
+</html>

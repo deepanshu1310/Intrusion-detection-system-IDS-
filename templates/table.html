@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3>📋 IP Data Table</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>Hits</th>
+                <th>Last Seen</th>
+                <th>Location</th>
+                <th>Org</th>
+            </tr>
+        </thead>
+        <tbody id="ipTableBody"></tbody>
+    </table>
+
+    <script>
+        function updateTable() {
+            fetch('/data')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.getElementById("ipTableBody");
+                    tbody.innerHTML = '';  // Clear the current table
+                    Object.entries(data).forEach(([ip, details]) => {
+                        const row = `
+                            <tr>
+                                <td>${ip}</td>
+                                <td>${details.count}</td>
+                                <td>${details.last_seen}</td>
+                                <td>${details.location}</td>
+                                <td>${details.org}</td>
+                            </tr>
+                        `;
+                        tbody.innerHTML += row;
+                    });
+                });
+        }
+
+        // Initial load
+        updateTable();
+
+        // Update every 5 seconds
+        setInterval(updateTable, 3000);
+    </script>
+{% endblock %}

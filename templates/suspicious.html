@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3>⚠️ Suspicious IP Addresses</h3>
+    <ul id="suspiciousList"></ul>
+
+    <script>
+        function updateSuspiciousIPs() {
+            fetch("/alerts")
+                .then(res => res.json())
+                .then(data => {
+                    const list = document.getElementById("suspiciousList");
+                    list.innerHTML = ''; // Clear the current list
+                    data.forEach(ip => {
+                        const item = document.createElement("li");
+                        item.textContent = ip;
+                        list.appendChild(item);
+                    });
+                });
+        }
+
+        // Initial load
+        updateSuspiciousIPs();
+
+        // Update every 5 seconds
+        setInterval(updateSuspiciousIPs, 3000);
+    </script>
+{% endblock %}

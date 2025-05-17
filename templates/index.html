@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="text-center">
+    <h2 class="mb-4">Welcome to the Intrusion Detection System</h2>
+    <div class="d-flex flex-wrap justify-content-center">
+      <a href="/suspicious" class="btn btn-main">Suspicious Detection</a>
+      <a href="/chart" class="btn btn-main">Hits by IP (Bar Chart)</a>
+      <a href="/table" class="btn btn-main">IP Data Table</a>
+      <a href="/login" class="btn btn-main">Login</a>
+      <a href="/about" class="btn btn-main">About Us</a>
+    </div>
+    <a href="https://en.wikipedia.org/wiki/Intrusion_detection_system" target="_blank">
+      <img src="https://trivestgroup.com/wp-content/uploads/2019/03/intrusion-detection-system.png"
+           class="img-fluid-fullscreen" alt="Intrusion Detection System">
+    </a>
+  </div>
+{% endblock %}

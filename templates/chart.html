@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3>📊 Hits by IP (Bar Chart)</h3>
+    <canvas id="ipChart" width="100%" height="40"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function updateChart() {
+            fetch('/data')
+                .then(res => res.json())
+                .then(data => {
+                    const ips = Object.keys(data);
+                    const counts = ips.map(ip => data[ip].count);
+
+                    const chartData = {
+                        labels: ips,
+                        datasets: [{
+                            label: 'Hits by IP',
+                            data: counts,
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+
+                    new Chart(document.getElementById("ipChart"), {
+                        type: 'bar',
+                        data: chartData,
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: { beginAtZero: true }
+                            }
+                        }
+                    });
+                });
+        }
+
+        // Initial load
+        updateChart();
+
+        // Update every 5 seconds
+        setInterval(updateChart, 3000);
+    </script>
+{% endblock %}

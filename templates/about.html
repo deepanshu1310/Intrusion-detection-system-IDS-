@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="about-container">
+    <h3>About Us</h3>
+    <div class="about-content">
+        <div class="about-text">
+            <p>
+                Welcome to our Intrusion Detection & Prevention System (IDPS) web application! This platform is designed to provide 
+                real-time monitoring of incoming and outgoing IP traffic. Using packet sniffing and geolocation services, we detect 
+                suspicious activities, highlight potential threats, and display key IP metadata such as location and organization. 
+                The user-friendly dashboard includes interactive charts, tables, and alerts to empower security professionals in 
+                identifying and mitigating risks quickly and effectively.
+            </p>
+            <p>
+                Whether you're a network admin or cybersecurity enthusiast, this tool helps you stay vigilant, informed, and in 
+                control of your network's safety.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="https://img.freepik.com/free-photo/woman-holding-network-graphic-overlay-banner_53876-122478.jpg?t=st=1745314292~exp=1745317892~hmac=5dede64c21c77b979b2e5cce672d5e6c289932b43a49af9a1346b885bffbbd55&w=1060" 
+                 alt="Cybersecurity Network" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .about-container {
+        padding: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f7f7f7;
+        border-radius: 10px;
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    .about-container h3 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-text {
+        flex: 1 1 400px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+    }
+
+    .about-image {
+        flex: 1 1 400px;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+    }
+</style>
+{% endblock %}
