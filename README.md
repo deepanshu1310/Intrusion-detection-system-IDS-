@@ -1,4 +1,4 @@
-# idsprojcyberS
+# Intrusion detection system (IDS)
 
 An Intrusion Detection System (IDS) project built with Python and JavaScript for real-time monitoring and threat detection.
 
